@@ -31,7 +31,7 @@ pipeline {
         }
         stage('docker') {
 
-            node ('linux') {
+            steps {
                                     checkout scm
                                     def customImage = docker.build("my-image:${env.BUILD_ID}")
                                     customImage.push()
